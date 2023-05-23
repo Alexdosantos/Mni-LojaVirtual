@@ -82,3 +82,33 @@ export const BntDados = styled.button`
 
 
 `
+export const CardBtnQuant = styled.div`
+    display: flex;
+    gap: 5px;
+
+`
+export const BtnQuantidade = styled.div`
+    box-sizing: border-box;
+ 
+    width: 49px;
+    height: 44px;
+    padding: 0px 13px;
+    
+    color: #FFFFFF;
+    background: #6950A1;
+    border: 1px solid #6950A1;
+    border-radius: 9px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    cursor: pointer;
+    
+
+
+    
+
+
+`

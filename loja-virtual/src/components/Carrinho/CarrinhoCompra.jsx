@@ -8,7 +8,8 @@ import { Footer } from "../Footer/Footer"
 
 import Bf from '../../assets/CapaGames/bf.png'
 import Cod from '../../assets/CapaGames/cod.png'
-import { CardProduct } from "./Body.Style"
+import { CardProduct, Total } from "./Body.Style"
+import { BtnQuantidade, CardBtnQuant } from "./Buttons.styles"
 
 
 
@@ -41,10 +42,10 @@ export const CarrinhoCompra = () => {
                 <p>Valor: R$10,00</p>
                 <p>Quantidade:1</p>
             
-                <div>
-                    <button>+</button>
-                    <button>-</button>
-                </div>
+                <CardBtnQuant>
+                    <BtnQuantidade>+</BtnQuantidade>
+                    <BtnQuantidade>-</BtnQuantidade>
+                </CardBtnQuant>
             </div>
             
                    
@@ -54,7 +55,7 @@ export const CarrinhoCompra = () => {
  ))}
 
           <div>
-            <p>Total:R$20,00</p>
+            <Total>Total:R$20,00</Total>
           </div>
           <div>
             <ButtonDados />

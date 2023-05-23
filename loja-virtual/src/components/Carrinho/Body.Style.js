@@ -16,3 +16,26 @@ export const CardProduct = styled.div`
 
 
 `
+
+export const Total = styled.p`
+
+    margin: 0 auto;
+    width: 550px;
+    height: 50px;
+    
+    
+    
+    margin-top: 20px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    
+
+    text-transform: capitalize;
+
+    color: #141212;
+
+`

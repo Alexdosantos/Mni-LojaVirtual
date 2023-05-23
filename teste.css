@@ -13,4 +13,5 @@ teste {
    justify-content: space-between;
     color: #693ec4;
     transition: .3s;
+    inset: 0;
 }
