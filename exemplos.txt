@@ -1,0 +1,51 @@
+const object = {
+  title: 'lorem ipsum dolor amet consectetur',
+  description: 'lorem ipsum dolor amet consectetur lorem ipsum dolor amet consectetur',
+  price: 123.88
+}
+
+object.title
+object.description
+object.price
+const array = [
+  {
+    title: 'lorem ipsum ',
+    description: 'lorem ipsum dolor amet consectetur lorem ipsum dolor amet consectetur',
+    price: 123.88
+  },
+  {
+    title: 'dolor amet consectetur',
+    description: 'lorem ipsum dolor amet consectetur lorem ipsum dolor amet consectetur',
+    price: 123.88
+  },
+  {
+    title: 'amet consectetur',
+    description: 'lorem ipsum dolor amet consectetur lorem ipsum dolor amet consectetur',
+    price: 123.88
+  },
+]
+array.map(item => {
+  // item.title
+  // item.description
+  // item.price
+})
+
+// [0] [1] [2]
+const obj = {
+  name: 'Marcos',
+  childrens: [
+    {
+      name: 'Rodrigo'
+    },
+    {
+      name: 'Kamilla'
+    }
+  ]
+}
+
+
+obj.name // Marcos
+obj.childrens.map(child => {
+  child.name // 0 => Rodrigo
+  child.name // 1 => Kamilla
+})
