@@ -7,7 +7,7 @@ import Horizon from '../../assets/CapaGames/Horizon.png'
 import Resident from '../../assets/CapaGames/resident.png'
 import { Button } from "../Buybutton/Button"
 import { useState } from "react"
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigat } from 'react-router-dom';
 
 
  export const Body = () => {
