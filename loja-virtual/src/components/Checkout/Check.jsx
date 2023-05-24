@@ -23,10 +23,15 @@ export const Check = () => {
         <Infotexth2>Checkout</Infotexth2>
       </Infotext>
       <TextP>Produtos Escolhidos</TextP>
-      <CardImgCheck>
-        < ImageTamanho src={Bf} alt="" />
-        < ImageTamanho src={Cod} alt="" />
-      </CardImgCheck>
+      {selectProduct.map((produtos)=>(
+          <CardImgCheck key={produtos}>
+              < ImageTamanho src={produtos.img} alt="" />
+          </CardImgCheck>
+
+
+
+      ))}
+      
       <TextP>Total Produtos 2</TextP>
       <TextP>Total:R$ 20,00</TextP>
       <ButtonFinaly />

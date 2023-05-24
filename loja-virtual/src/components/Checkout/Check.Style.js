@@ -20,10 +20,11 @@ export const TextP = styled.p`
 ` 
 
 export const CardImgCheck = styled.div`
+    display:flex;
 
     margin: 0 auto;
     width: 640px;
-    height: 200px;
+    
     margin-top:45px ;
 
     padding: 0px 0px 0px 90px;
@@ -32,6 +33,7 @@ export const CardImgCheck = styled.div`
 `
 
 export const ImageTamanho = styled.img`
+
   width: 200px;
   height: 190px;
 `
