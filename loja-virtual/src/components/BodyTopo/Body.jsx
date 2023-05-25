@@ -12,12 +12,12 @@ import { useState } from "react"
 
  export const Body = () => {
     const produtos = [
-        {id: 1 , nome:'Battlefield' , price: 'R$10,00' , img: Bf},
-        {id: 2 , nome:'Call of Duty' , price: 'R$10,00' , img: Cod},
-        {id: 3 , nome:'Dark Souls' , price: 'R$10,00', img: Dark},
-        {id: 4 , nome:'Resident Evil 3' , price: 'R$10,00', img: God},
-        {id: 5 , nome:'God of War Ragnarok' , price: 'R$10,00', img: Horizon},
-        {id: 6 , nome:'Horizon' , price: 'R$10,00', img: Resident},
+      { id: 1, nome: "Battlefield", price: "R$10,00", img: Bf },
+      { id: 2, nome: "Call of Duty", price: "R$10,00", img: Cod },
+      { id: 3, nome: "Dark Souls", price: "R$10,00", img: Dark },
+      { id: 4, nome: "God of War Ragnarok", price: "R$10,00", img: God },
+      { id: 5, nome: "Horizon", price: "R$10,00", img: Horizon },
+      { id: 6, nome: "Resindent Evil", price: "R$10,00", img: Resident },
         
     ]
 

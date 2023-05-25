@@ -56,7 +56,7 @@ export const CapaGamer = styled.div`
     justify-content: center;
     flex-direction: column;
     justify-content: space-around;
-    
+
 
 `
 
