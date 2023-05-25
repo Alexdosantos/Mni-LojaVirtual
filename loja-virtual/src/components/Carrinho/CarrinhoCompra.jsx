@@ -5,6 +5,8 @@ import { Footer } from "../Footer/Footer";
 import { CardProduct, ImgCarrinho, SubTitle, Title, Total } from "./Body.Style";
 import { BtnQuantidade, CardBtnQuant } from "./Buttons.styles";
 import { ButtonDados } from "./Buttons"
+import { useState } from "react";
+
 
 
 import Bf from "../../assets/CapaGames/bf.png";
@@ -13,6 +15,7 @@ import Dark from "../../assets/CapaGames/Dark.png";
 import God from "../../assets/CapaGames/God.png";
 import Horizon from "../../assets/CapaGames/Horizon.png";
 import Resident from "../../assets/CapaGames/resident.png";
+
 
 export const CarrinhoCompra = () => {
   const location = useLocation();
@@ -29,6 +32,29 @@ export const CarrinhoCompra = () => {
   ];
 
   const cartItems = state?.cart || [];
+
+  const [quantidades, setQuantidades] = useState(
+    cartItems.reduce((acc, itemId) => {
+      acc[itemId] = 1; // Inicializa a quantidade de cada item como 1
+      return acc;
+    }, {})
+  );
+
+  const Increase = (itemId) => {
+    setQuantidades((prevQuantidades) => ({
+      ...prevQuantidades,
+      [itemId]: prevQuantidades[itemId] + 1
+    }));
+  };
+
+  const Decrease = (itemId) => {
+    setQuantidades((prevQuantidades) => ({
+      ...prevQuantidades,
+      [itemId]: prevQuantidades[itemId] = 1
+    }));
+  };
+
+  
 
   return (
     <>
@@ -49,10 +75,12 @@ export const CarrinhoCompra = () => {
                 <Title>{produto.nome}</Title>
                 
                 <SubTitle>Valor: {produto.price}</SubTitle>
-                <SubTitle>Quantidade: 1</SubTitle>
+                <SubTitle>Quantidade: {quantidades[itemId]}</SubTitle>
+
                 <CardBtnQuant>
-                  <BtnQuantidade>+</BtnQuantidade>
-                  <BtnQuantidade>-</BtnQuantidade>
+                  
+                  <BtnQuantidade onClick={() => Increase(itemId)}>+</BtnQuantidade>
+                  <BtnQuantidade onClick={() => Decrease(itemId)}>-</BtnQuantidade>
                 </CardBtnQuant>
               </div>
             </CardProduct>
