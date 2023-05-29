@@ -1,34 +1,26 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { Infotext, Infotexth2, Infotexth3 } from "../BodyTopo/BodyTop.Style";
 import { Header } from "../Header/Header";
 import { Footer } from "../Footer/Footer";
-import { CardProduct, ImgCarrinho, SubTitle, Title, Total } from "./Body.Style";
-import { BtnQuantidade, CardBtnQuant } from "./Buttons.styles";
-import { ButtonDados } from "./Buttons"
-import { useState } from "react";
+import { Total } from "./Body.Style";
+import { ButtonDados } from "./Buttons";
+import CartItem from "./CartItem";
 
-
-
-import Bf from "../../assets/CapaGames/bf.png";
-import Cod from "../../assets/CapaGames/cod.png";
-import Dark from "../../assets/CapaGames/Dark.png";
-import God from "../../assets/CapaGames/God.png";
-import Horizon from "../../assets/CapaGames/Horizon.png";
-import Resident from "../../assets/CapaGames/resident.png";
-
+import ImgCapaGames from "./ImgCapaGames";
 
 export const CarrinhoCompra = () => {
   const location = useLocation();
   console.log(location);
-  const {state } = location;
+  const { state } = location;
 
   const produtos = [
-    { id: 1, nome: "Battlefield", price: "R$10,00", img: Bf },
-    { id: 2, nome: "Call of Duty", price: "R$10,00", img: Cod },
-    { id: 3, nome: "Dark Souls", price: "R$10,00", img: Dark },
-    { id: 4, nome: "God of War Ragnarok", price: "R$10,00", img: God },
-    { id: 5, nome: "Horizon", price: "R$10,00", img: Horizon },
-    { id: 6, nome: "Resindent Evil", price: "R$10,00", img: Resident },
+    { id: 1, nome: "Battlefield", price: "R$10,00", img:ImgCapaGames.Bf },
+    { id: 2, nome: "Call of Duty", price: "R$10,00", img: ImgCapaGames.Cod },
+    { id: 3, nome: "Dark Souls", price: "R$10,00", img: ImgCapaGames.Dark },
+    { id: 4, nome: "God of War Ragnarok", price: "R$10,00", img:ImgCapaGames.God },
+    { id: 5, nome: "Horizon", price: "R$10,00", img: ImgCapaGames.Horizon },
+    { id: 6, nome: "Resindent Evil", price: "R$10,00", img: ImgCapaGames.Resident },
   ];
 
   const cartItems = state?.cart || [];
@@ -40,21 +32,27 @@ export const CarrinhoCompra = () => {
     }, {})
   );
 
+  const [total, setTotal] = useState(cartItems.length * 10);
+
   const Increase = (itemId) => {
     setQuantidades((prevQuantidades) => ({
       ...prevQuantidades,
       [itemId]: prevQuantidades[itemId] + 1
     }));
+
+    setTotal((prevTotal) => prevTotal + 10);
   };
 
   const Decrease = (itemId) => {
-    setQuantidades((prevQuantidades) => ({
-      ...prevQuantidades,
-      [itemId]: prevQuantidades[itemId] = 1
-    }));
-  };
+    if (quantidades[itemId] > 1) {
+      setQuantidades((prevQuantidades) => ({
+        ...prevQuantidades,
+        [itemId]: prevQuantidades[itemId] - 1
+      }));
 
-  
+      setTotal((prevTotal) => prevTotal - 10);
+    }
+  };
 
   return (
     <>
@@ -67,31 +65,21 @@ export const CarrinhoCompra = () => {
         const produto = produtos.find((p) => p.id === itemId);
         if (produto) {
           return (
-            <CardProduct key={produto.id}>
-              <div>
-                <ImgCarrinho src={produto.img} alt="" />
-              </div>
-              <div>
-                <Title>{produto.nome}</Title>
-                
-                <SubTitle>Valor: {produto.price}</SubTitle>
-                <SubTitle>Quantidade: {quantidades[itemId]}</SubTitle>
-
-                <CardBtnQuant>
-                  
-                  <BtnQuantidade onClick={() => Increase(itemId)}>+</BtnQuantidade>
-                  <BtnQuantidade onClick={() => Decrease(itemId)}>-</BtnQuantidade>
-                </CardBtnQuant>
-              </div>
-            </CardProduct>
+            <CartItem
+              key={produto.id}
+              produto={produto}
+              quantidade={quantidades[itemId]}
+              Increase={() => Increase(itemId)}
+              Decrease={() => Decrease(itemId)}
+            />
           );
         }
         return null;
       })}
       <div>
-        <Total>Total: R${cartItems.length * 10},00</Total>
+        <Total>Total: R${total},00</Total>
       </div>
-      < ButtonDados />
+      <ButtonDados />
       <Footer />
     </>
   );

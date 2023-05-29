@@ -1,23 +1,19 @@
 import { Infotext ,Infotexth2,Infotexth3,CapaGamer,ImgGamer,BoxPrice,Checkoutbox,TextValor } from "./BodyTop.Style"
-import Bf from '../../assets/CapaGames/bf.png'
-import Cod from '../../assets/CapaGames/cod.png'
-import Dark from '../../assets/CapaGames/Dark.png'
-import God from '../../assets/CapaGames/God.png'
-import Horizon from '../../assets/CapaGames/Horizon.png'
-import Resident from '../../assets/CapaGames/resident.png'
+import ImgCapaGames from "../Carrinho/ImgCapaGames"
 import { Button } from "../Buybutton/Button"
 import { useState } from "react"
 
 
 
+
  export const Body = () => {
     const produtos = [
-      { id: 1, nome: "Battlefield", price: "R$10,00", img: Bf },
-      { id: 2, nome: "Call of Duty", price: "R$10,00", img: Cod },
-      { id: 3, nome: "Dark Souls", price: "R$10,00", img: Dark },
-      { id: 4, nome: "God of War Ragnarok", price: "R$10,00", img: God },
-      { id: 5, nome: "Horizon", price: "R$10,00", img: Horizon },
-      { id: 6, nome: "Resindent Evil", price: "R$10,00", img: Resident },
+    { id: 1, nome: "Battlefield", price: "R$10,00", img:ImgCapaGames.Bf },
+    { id: 2, nome: "Call of Duty", price: "R$10,00", img: ImgCapaGames.Cod },
+    { id: 3, nome: "Dark Souls", price: "R$10,00", img: ImgCapaGames.Dark },
+    { id: 4, nome: "God of War Ragnarok", price: "R$10,00", img:ImgCapaGames. God },
+    { id: 5, nome: "Horizon", price: "R$10,00", img: ImgCapaGames.Horizon },
+    { id: 6, nome: "Resindent Evil", price: "R$10,00", img: ImgCapaGames.Resident },
         
     ]
 
