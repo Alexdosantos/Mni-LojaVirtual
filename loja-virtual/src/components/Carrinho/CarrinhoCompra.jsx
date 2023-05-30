@@ -23,16 +23,17 @@ export const CarrinhoCompra = () => {
     { id: 6, name: "Resindent Evil", price: "R$10,00", img: ImgCapaGames.Resident },
   ];
 
-  const cartItems = state?.cart || [];
+  const initialCartItems = state?.cart || []; // Valor inicial do carrinho
+  const [cartItems, setCartItems] = useState(initialCartItems); // Estado do carrinho
 
   const [quantidades, setQuantidades] = useState(
-    cartItems.reduce((acc, itemId) => {
+    initialCartItems.reduce((acc, itemId) => {
       acc[itemId] = 1; // Inicializa a quantidade de cada item como 1
       return acc;
     }, {})
   );
 
-  const [total, setTotal] = useState(cartItems.length * 10);
+  const [total, setTotal] = useState(initialCartItems.length * 10);
 
   const Increase = (itemId) => {
     setQuantidades((prevQuantidades) => ({
@@ -55,13 +56,13 @@ export const CarrinhoCompra = () => {
   };
 
   const handleDelete = (itemId) => {
-    // Implementação da lógica para remover o item do carrinho pelo ID
-    
+    const updatedCartItems = cartItems.filter((item) => item !== itemId);
     const updatedQuantidades = { ...quantidades };
     delete updatedQuantidades[itemId];
     const updatedTotal = total - 10;
 
     // Atualize os estados com os novos valores
+    setCartItems(updatedCartItems);
     setQuantidades(updatedQuantidades);
     setTotal(updatedTotal);
   };
