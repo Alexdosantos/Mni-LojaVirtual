@@ -14,4 +14,7 @@ teste {
     color: #693ec4;
     transition: .3s;
     inset: 0;
+    border: none;
+    align-items: center;
+    text-align: center;
 }

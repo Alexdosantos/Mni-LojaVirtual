@@ -8,12 +8,12 @@ import { useState } from "react"
 
  export const Body = () => {
     const produtos = [
-    { id: 1, nome: "Battlefield", price: "R$10,00", img:ImgCapaGames.Bf },
-    { id: 2, nome: "Call of Duty", price: "R$10,00", img: ImgCapaGames.Cod },
-    { id: 3, nome: "Dark Souls", price: "R$10,00", img: ImgCapaGames.Dark },
-    { id: 4, nome: "God of War Ragnarok", price: "R$10,00", img:ImgCapaGames. God },
-    { id: 5, nome: "Horizon", price: "R$10,00", img: ImgCapaGames.Horizon },
-    { id: 6, nome: "Resindent Evil", price: "R$10,00", img: ImgCapaGames.Resident },
+    { id: 1, name: "Battlefield", price: "R$10,00", img:ImgCapaGames.Bf },
+    { id: 2, name: "Call of Duty", price: "R$10,00", img: ImgCapaGames.Cod },
+    { id: 3, name: "Dark Souls", price: "R$10,00", img: ImgCapaGames.Dark },
+    { id: 4, name: "God of War Ragnarok", price: "R$10,00", img:ImgCapaGames. God },
+    { id: 5, name: "Horizon", price: "R$10,00", img: ImgCapaGames.Horizon },
+    { id: 6, name: "Resindent Evil", price: "R$10,00", img: ImgCapaGames.Resident },
         
     ]
 
