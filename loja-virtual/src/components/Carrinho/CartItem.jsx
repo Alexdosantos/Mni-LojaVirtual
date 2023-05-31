@@ -1,14 +1,9 @@
 import React from "react";
 import { CardProduct, ImgCarrinho, SubTitle, Title } from "./Body.Style";
 import { BtnQuantidade, CardBtnQuant } from "./Buttons.styles";
-
 import { ButtonDelete } from "./ButtonDelete";
 
-
-
 const CartItem = ({ produto, quantidade, Increase, Decrease, Delete }) => {
-  
-
   return (
     <CardProduct key={produto.id}>
       <div>

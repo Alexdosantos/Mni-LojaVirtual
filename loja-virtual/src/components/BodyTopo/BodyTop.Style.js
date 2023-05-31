@@ -56,7 +56,10 @@ export const CapaGamer = styled.div`
     justify-content: center;
     flex-direction: column;
     justify-content: space-around;
+    
+    
 
+    
 
 `
 
@@ -73,9 +76,8 @@ export const ImgGamer = styled.img`
 
     margin-right: 365px;
     margin-top: 25px ;
-
-
-
+    mix-blend-mode:color-burn;
+    
 
 `
 

@@ -42,6 +42,26 @@ export const CarrinhoCompra = () => {
     setTotal(updatedTotal);
   };
 
+  const handleIncrease = (itemId) => {
+    const updatedQuantidades = { ...quantidades };
+    updatedQuantidades[itemId] = updatedQuantidades[itemId] + 1;
+    const updatedTotal = total + 10;
+
+    setQuantidades(updatedQuantidades);
+    setTotal(updatedTotal);
+  };
+
+  const handleDecrease = (itemId) => {
+    if (quantidades[itemId] > 1) {
+      const updatedQuantidades = { ...quantidades };
+      updatedQuantidades[itemId] = updatedQuantidades[itemId] - 1;
+      const updatedTotal = total - 10;
+
+      setQuantidades(updatedQuantidades);
+      setTotal(updatedTotal);
+    }
+  };
+
   return (
     <>
       <Header />
@@ -57,19 +77,8 @@ export const CarrinhoCompra = () => {
               key={produto.id}
               produto={produto}
               quantidade={quantidades[itemId]}
-              Increase={() => setQuantidades((prevQuantidades) => ({
-                ...prevQuantidades,
-                [itemId]: prevQuantidades[itemId] + 1,
-              }))}
-              Decrease={() => {
-                if (quantidades[itemId] > 1) {
-                  setQuantidades((prevQuantidades) => ({
-                    ...prevQuantidades,
-                    [itemId]: prevQuantidades[itemId] - 1,
-                  }));
-                  setTotal((prevTotal) => prevTotal - 10);
-                }
-              }}
+              Increase={() => handleIncrease(itemId)}
+              Decrease={() => handleDecrease(itemId)}
               Delete={() => handleDelete(itemId)}
             />
           );
