@@ -6,12 +6,10 @@ import { Footer } from "../Footer/Footer";
 import { Total } from "./Body.Style";
 import { ButtonDados } from "./Buttons";
 import CartItem from "./CartItem";
-
 import ImgCapaGames from "./ImgCapaGames";
 
 export const CarrinhoCompra = () => {
   const location = useLocation();
-  console.log(location);
   const { state } = location;
 
   const produtos = [
@@ -23,37 +21,15 @@ export const CarrinhoCompra = () => {
     { id: 6, name: "Resindent Evil", price: "R$10,00", img: ImgCapaGames.Resident },
   ];
 
-  const initialCartItems = state?.cart || []; // Valor inicial do carrinho
-  const [cartItems, setCartItems] = useState(initialCartItems); // Estado do carrinho
-
+  const initialCartItems = state?.cart || [];
+  const [cartItems, setCartItems] = useState(initialCartItems);
   const [quantidades, setQuantidades] = useState(
     initialCartItems.reduce((acc, itemId) => {
-      acc[itemId] = 1; // Inicializa a quantidade de cada item como 1
+      acc[itemId] = 1;
       return acc;
     }, {})
   );
-
   const [total, setTotal] = useState(initialCartItems.length * 10);
-
-  const Increase = (itemId) => {
-    setQuantidades((prevQuantidades) => ({
-      ...prevQuantidades,
-      [itemId]: prevQuantidades[itemId] + 1,
-    }));
-
-    setTotal((prevTotal) => prevTotal + 10);
-  };
-
-  const Decrease = (itemId) => {
-    if (quantidades[itemId] > 1) {
-      setQuantidades((prevQuantidades) => ({
-        ...prevQuantidades,
-        [itemId]: prevQuantidades[itemId] - 1,
-      }));
-
-      setTotal((prevTotal) => prevTotal - 10);
-    }
-  };
 
   const handleDelete = (itemId) => {
     const updatedCartItems = cartItems.filter((item) => item !== itemId);
@@ -61,7 +37,6 @@ export const CarrinhoCompra = () => {
     delete updatedQuantidades[itemId];
     const updatedTotal = total - 10;
 
-    // Atualize os estados com os novos valores
     setCartItems(updatedCartItems);
     setQuantidades(updatedQuantidades);
     setTotal(updatedTotal);
@@ -82,8 +57,19 @@ export const CarrinhoCompra = () => {
               key={produto.id}
               produto={produto}
               quantidade={quantidades[itemId]}
-              Increase={() => Increase(itemId)}
-              Decrease={() => Decrease(itemId)}
+              Increase={() => setQuantidades((prevQuantidades) => ({
+                ...prevQuantidades,
+                [itemId]: prevQuantidades[itemId] + 1,
+              }))}
+              Decrease={() => {
+                if (quantidades[itemId] > 1) {
+                  setQuantidades((prevQuantidades) => ({
+                    ...prevQuantidades,
+                    [itemId]: prevQuantidades[itemId] - 1,
+                  }));
+                  setTotal((prevTotal) => prevTotal - 10);
+                }
+              }}
               Delete={() => handleDelete(itemId)}
             />
           );
